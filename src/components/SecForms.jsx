@@ -1,30 +1,13 @@
 import React, { Component } from 'react'
+import {useParams} from "react-router-dom"
+
 
 export default class SecForms extends Component {
-    fakedata2 = [
-        {
-          weight: "20%",
-          department: "model"
-        },
-        {
-          weight: "20%",
-          department: "surf"
-        },
-        {
-          weight: "20%",
-          department: "poop"
-        },
-        {
-          weight: "20%",
-          department: "doop"
-        },
-        {
-          weight: "20%",
-          department: "durp"
-        }
-      ];
-      
+    componentDidMount() {
+      var data = JSON.parse()
+    };
     render() {
+      
         return (
             <div>
                 

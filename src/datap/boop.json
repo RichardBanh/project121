@@ -1,0 +1,132 @@
+{"movies":[
+    {
+        "weight": "20%",
+        "department": "BFG"
+      },
+      {
+        "weight": "20%",
+        "department": "Matrix"
+      },
+      {
+        "weight": "20%",
+        "department": "Terminator"
+      },
+      {
+        "weight": "20%",
+        "department": "Go"
+      },
+      {
+        "weight": "20%",
+        "department": "Titaculor"
+      }
+    
+    ],
+    "BFG": [
+        {
+            "weight": "20%",
+            "department": "model"
+          },
+          {
+            "weight": "20%",
+            "department": "surf"
+          },
+          {
+            "weight": "20%",
+            "department": "poop"
+          },
+          {
+            "weight": "20%",
+            "department": "doop"
+          },
+          {
+            "weight": "20%",
+            "department": "durp"
+          }
+    ],
+    "Matrix": [
+        {
+            "weight": "20%",
+            "department": "model"
+          },
+          {
+            "weight": "20%",
+            "department": "surf"
+          },
+          {
+            "weight": "20%",
+            "department": "poop"
+          },
+          {
+            "weight": "20%",
+            "department": "doop"
+          },
+          {
+            "weight": "20%",
+            "department": "durp"
+          }
+    ],"Terminator": [
+        {
+            "weight": "20%",
+            "department": "model"
+          },
+          {
+            "weight": "20%",
+            "department": "surf"
+          },
+          {
+            "weight": "20%",
+            "department": "poop"
+          },
+          {
+            "weight": "20%",
+            "department": "doop"
+          },
+          {
+            "weight": "20%",
+            "department": "durp"
+          }
+    ],"Go": [
+        {
+            "weight": "20%",
+            "department": "model"
+          },
+          {
+            "weight": "20%",
+            "department": "surf"
+          },
+          {
+            "weight": "20%",
+            "department": "poop"
+          },
+          {
+            "weight": "20%",
+            "department": "doop"
+          },
+          {
+            "weight": "20%",
+            "department": "durp"
+          }
+    ], "Titaculor": [
+        {
+            "weight": "20%",
+            "department": "model"
+          },
+          {
+            "weight": "20%",
+            "department": "surf"
+          },
+          {
+            "weight": "20%",
+            "department": "poop"
+          },
+          {
+            "weight": "20%",
+            "department": "doop"
+          },
+          {
+            "weight": "20%",
+            "department": "durp"
+          }
+    ]
+
+}

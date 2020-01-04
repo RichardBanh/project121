@@ -1,35 +1,27 @@
 import React, { Component } from "react";
 import Form from "./Form";
+import datap from "../datap/boop"
 
 export default class Forms extends Component {
-  fakedata = [
-    {
-      weight: "20%",
-      department: "model"
-    },
-    {
-      weight: "20%",
-      department: "surf"
-    },
-    {
-      weight: "20%",
-      department: "poop"
-    },
-    {
-      weight: "20%",
-      department: "doop"
-    },
-    {
-      weight: "20%",
-      department: "durp"
-    }
-  ];
-  
+ constructor(props){
+   super(props);
+   this.state = {data:[]}
+   console.log(datap) 
+ }
+
+  componentDidMount() {
+    const data = datap.movies
+    console.log(data)
+    this.setState({data});
+  }
   
   render() {
-    const formpopulated = this.fakedata.map(x => (
+    if (!this.state.data){
+      return (<div>Loading</div>)
+    } else {
+      const formpopulated = this.state.data.map(x => (
       <Form department={x.department} weight={parseInt(x.weight, 10)} />
     ));
-    return <form>{formpopulated}</form>;
-  }
+    return (<form>{formpopulated}</form>)
+  }}
 }
