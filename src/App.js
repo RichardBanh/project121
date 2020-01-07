@@ -4,8 +4,6 @@ import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import SecForms from "./components/SecForms"
 
 function App() {
-
-
   return (
     <div>
       <Router>
