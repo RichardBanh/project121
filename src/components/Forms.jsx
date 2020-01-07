@@ -6,12 +6,11 @@ export default class Forms extends Component {
  constructor(props){
    super(props);
    this.state = {data:[]}
-   console.log(datap) 
+
  }
 
   componentDidMount() {
     const data = datap.movies
-    console.log(data)
     this.setState({data});
   }
   
@@ -22,6 +21,6 @@ export default class Forms extends Component {
       const formpopulated = this.state.data.map(x => (
       <Form department={x.department} weight={parseInt(x.weight, 10)} />
     ));
-    return (<form>{formpopulated}</form>)
+    return (<form>{formpopulated}<button>Submit</button></form>)
   }}
 }

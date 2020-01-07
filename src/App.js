@@ -1,13 +1,20 @@
 import React from 'react';
 import Forms from './components/Forms'
-import './App.css';
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import SecForms from "./components/SecForms"
 
 function App() {
 
 
   return (
     <div>
-       <Forms/>
+      <Router>
+       <Switch>
+         <Route exact path="/" component = {Forms}/>
+        <Route path="/:id" component= {SecForms}/>
+      </Switch>
+      
+      </Router>
     </div>
   );
 }

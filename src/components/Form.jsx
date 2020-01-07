@@ -1,21 +1,32 @@
-import React, { Component } from "react";
-import {Link,BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import SecForms from "./SecForms"
-export default class Form extends Component {
-  render() {
+import React from "react";
+import {Link, useParams} from "react-router-dom";
+
+
+
+export default function Form(props) {
+  if (props.id) {
     return (
-      <Router>
-          
-          <Link to={this.props.department}>{this.props.department}</Link>
+      <>
+          <div>{props.department}</div>
           <input
           type="text"
-          name={this.props.department}
-          value={this.props.weight}
+          name={props.department}
+          value={props.weight}
         />
-        <Switch>
-        <Route path="/:id" children={<SecForms/>}/>
-        </Switch>
-      </Router>
+      </>
+    );
+  } else {
+    return (
+      <>
+          <Link to={props.department}>{props.department}</Link>
+          <input
+          type="text"
+          name={props.department}
+          value={props.weight}
+        />
+      </>
     );
   }
+  
+  
 }
