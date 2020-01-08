@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Form from "./Form";
 import datap from "../datap/boop";
+
 export default class Forms extends Component {
   constructor(props) {
     super(props);
@@ -20,6 +21,7 @@ export default class Forms extends Component {
       return (
         <form>
           {formpopulated}
+          <button>Calculate</button>
           <input type="submit" />
         </form>
       );
