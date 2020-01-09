@@ -6,6 +6,8 @@ export default class Form extends Component {
     super(props);
     this.state = { weight: this.props.weight, style: "none" };
     this.handleChange = this.handleChange.bind(this);
+    this.selected = this.selected.bind(this);
+    this.clickoutside = this.clickoutside.bind(this);
   }
 
   handleChange(e) {
@@ -15,13 +17,18 @@ export default class Form extends Component {
   selected() {
     this.setState({style: "2px solid red"})
   }
+  
+  clickoutside() {
+    this.setState({style:"none"})
+  }
+
   render() {
     if (this.props.id) {
       return (
         <>
           <div>{this.props.department}</div>
           <input
-            style={this.state.style}
+            style={{border: this.state.style}}
             type="text"
             name={this.props.department}
             value={this.state.weight}

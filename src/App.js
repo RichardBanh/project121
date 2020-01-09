@@ -6,8 +6,13 @@ import SecForms from "./components/SecForms";
 
 
 function App() {
+  const func = (event) => {
+    
+      console.log(event)
+      console.log(event.target.nodeName)}
+
   return (
-    <div>
+    <div onClick = {func}>
       <Router>
         <Switch>
           <Route exact path="/"  render={ (props) => <Forms {...props}/>} />
