@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export default class SecForms extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: [], id: "" };
+    this.state = { data: [], id: "", };
   }
   componentDidMount() {
     var id = this.props.match.params.id;
@@ -21,6 +21,11 @@ export default class SecForms extends Component {
   calculate = (obj) =>{
     const count = obj.length
     const percentsplit = 100/count 
+    this.setState({})
+  }
+
+  passingdataToCalcu = (data) => {
+    
   }
   
   render() {
@@ -29,7 +34,7 @@ export default class SecForms extends Component {
     } else {
       if (this.state.id) {
         let formpopulated = this.state.data.map(x => (
-          <Form department={x.department} weight={parseInt(x.weight, 10)} id />
+          <Form department={x.department} weight={parseInt(x.weight, 10)} id passingdataToCalcu={this.passingdataToCalcu} />
         ));
         return (
           <form>
