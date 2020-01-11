@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import datap from "../datap/boop";
 import Form from "./Form";
 import { Link } from "react-router-dom";
+import '../css/StyleSheet.css'
 
 //decide what data is passed here 
 export default class SecForms extends Component {
@@ -19,10 +20,6 @@ export default class SecForms extends Component {
   }
   
   calculate = (obj) =>{
-    
-  }
-
-  passingdataToCalcu = (data) => {
     
   }
   

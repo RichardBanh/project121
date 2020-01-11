@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import Form from "./Form";
 import datap from "../datap/boop";
+import '../css/StyleSheet.css'
 
 export default class Forms extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: [] };
+    this.state = { data: [], changeinvalue: 0,
+      calchange: 0};
   }
 
 
@@ -15,6 +17,9 @@ export default class Forms extends Component {
     
   }
 
+  calculate = (obj) =>{
+    
+  }
   
 
   render() {
