@@ -19,9 +19,7 @@ export default class SecForms extends Component {
   }
   
   calculate = (obj) =>{
-    const count = obj.length
-    const percentsplit = 100/count 
-    this.setState({})
+    
   }
 
   passingdataToCalcu = (data) => {
@@ -34,16 +32,16 @@ export default class SecForms extends Component {
     } else {
       if (this.state.id) {
         let formpopulated = this.state.data.map(x => (
-          <Form department={x.department} weight={parseInt(x.weight, 10)} id passingdataToCalcu={this.passingdataToCalcu} clicked = {this.props.clicked}/>
+          <Form department={x.department} weight={parseInt(x.weight, 10)} id selcName = {this.props.selcName}/>
         ));
         return (
           <form>
             {formpopulated}
-            <button>
+            <button className="btn">
               <Link to="/">back</Link>
             </button>
-            <button>Calculate</button>
-            <input type="submit" />
+            <button className="btn">Calculate</button>
+            <input className="btn" type="submit" />
           </form>
         );
       } else {

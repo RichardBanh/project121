@@ -4,37 +4,37 @@ import { Link } from "react-router-dom";
 export default class Form extends Component {
   constructor(props) {
     super(props);
-    this.state = { weight: this.props.weight, style: "none", clicked: this.props.clicked, name:"" };
+    this.state = { weight: this.props.weight, style: "none", changed: false };
     this.handleChange = this.handleChange.bind(this);
-    this.selected = this.selected.bind(this);
   }
 
   handleChange(e) {
     this.setState({ weight: e.target.value });
   }
 
-  selected(e) {
-    this.setState({style: "2px solid red", name:e.target.name})
-  }
-  
-  componentDidMount() {
-    if (this.state.clicked) {
-      return
-    } else {
-      console.log(this.state.clicked)
+  componentDidUpdate() {
+    if (
+      this.props.selcName === this.props.department &&
+      this.state.changed === false
+    ) {
+      console.log("match");
+      this.setState({ style: "5px solid red", changed: true });
+    } else if (
+      this.state.changed === true &&
+      this.props.selcName !== this.props.department
+    ) {
+      this.setState({ changed: false, style: "none" });
     }
   }
- 
 
-  
   render() {
     if (this.props.id) {
       return (
         <>
-          <div>{this.props.department}</div>
+          <div className="label">{this.props.department}</div>
           <input
-            style={{border: this.state.style}}
-            type="text"
+            style={{ border: this.state.style }}
+            type='text'
             name={this.props.department}
             value={this.state.weight}
             onChange={this.handleChange}
@@ -47,8 +47,8 @@ export default class Form extends Component {
         <>
           <Link to={this.props.department}>{this.props.department}</Link>
           <input
-            style={{border: this.state.style}}
-            type="text"
+            style={{ border: this.state.style }}
+            type='text'
             name={this.props.department}
             value={this.state.weight}
             onChange={this.handleChange}

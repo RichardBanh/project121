@@ -2,6 +2,7 @@
     height: 100%;
     width: 100%;
     margin: 0px;
+    display: flex;
 }
 
 form {
@@ -11,6 +12,10 @@ form {
 
 input {
     height: 50px;
+    width:100px;
+}
+.label {
+    height:20px;
 }
 
 .btn {

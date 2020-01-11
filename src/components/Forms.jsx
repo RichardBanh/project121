@@ -22,7 +22,7 @@ export default class Forms extends Component {
       return <div>Loading</div>;
     } else {
       const formpopulated = this.state.data.map(x => (
-        <Form department={x.department} weight={parseInt(x.weight, 10)} clicked = {this.props.clicked} />
+        <Form department={x.department} weight={parseInt(x.weight, 10)} clicked = {this.props.clicked} selcName = {this.props.selcName} />
       ));
       return (
         <form>
