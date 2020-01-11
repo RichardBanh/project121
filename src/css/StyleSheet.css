@@ -1,0 +1,19 @@
+* {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+}
+
+form {
+    height: 100%;
+    width:700px;
+}
+
+input {
+    height: 50px;
+}
+
+.btn {
+    height:20px;
+    width: 100px;
+}

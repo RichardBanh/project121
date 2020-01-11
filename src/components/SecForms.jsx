@@ -34,7 +34,7 @@ export default class SecForms extends Component {
     } else {
       if (this.state.id) {
         let formpopulated = this.state.data.map(x => (
-          <Form department={x.department} weight={parseInt(x.weight, 10)} id passingdataToCalcu={this.passingdataToCalcu} />
+          <Form department={x.department} weight={parseInt(x.weight, 10)} id passingdataToCalcu={this.passingdataToCalcu} clicked = {this.props.clicked}/>
         ));
         return (
           <form>
