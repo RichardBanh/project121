@@ -8,8 +8,9 @@ input {
   width: 100px;
 }
 
-html, body, #root, .background {
+.background, #root, form, html, body {
   height: 100%;
+  margin: 0px;
 }
 
 .label {
