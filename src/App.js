@@ -8,8 +8,10 @@ import SecForms from "./components/SecForms";
 export default class App extends Component {
   constructor(props) {
     super(props);
-    this.state ={ selcName : null}
+    this.state ={ selcName : null, lockContainer: []}
     this.whatIsClicked = this.whatIsClicked.bind(this);
+    this.whatIsUnlocked = this.whatIsUnlocked.bind(this);
+    this.whatIsLocked = this.whatIsLocked.bind(this)
   }
 
   whatIsClicked = (event) => {
@@ -18,14 +20,27 @@ export default class App extends Component {
     this.setState({selcName:selcName})
   }
 
+  whatIsLocked = (event) => {
+    console.log(event.target.name + "locked")
+    // const names = event.name
+    // this.setState({lockContainer: this.state.lockContainer + names})
+  }
+
+  whatIsUnlocked = (event) => {
+    console.log(event.target.name + "unlocked")
+    // const names = event.name
+    // this.setState({lockContainer: this.state.lockContainer - names})  
+
+  }
+ 
   
   render() {
     return (
       <div className= "background" onClick={(e)=>this.whatIsClicked(e)}>
         <Router>
           <Switch>
-            <Route exact path="/"  render={ (props) => <Forms {...props} selcName={this.state.selcName} />} />
-            <Route path="/:id" render={ (props) => <SecForms {...props} selcName={this.state.selcName}/>} />
+            <Route exact path="/"  render={ (props) => <Forms {...props} selcName={this.state.selcName} whatIsLocked={this.whatIsLocked} whatIsUnlocked={this.whatIsUnlocked} lockedData = {this.state.lockContainer}/>} />
+            <Route path="/:id" render={ (props) => <SecForms {...props} selcName={this.state.selcName} whatIsLocked={this.whatIsLocked} whatIsUnlocked={this.whatIsUnlocked} lockedData = {this.state.lockContainer}/>} />
           </Switch>
         </Router>
       </div>

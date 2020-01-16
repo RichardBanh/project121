@@ -31,28 +31,38 @@ export default class Form extends Component {
       this.props.selcName !== this.props.department
     ) {
       this.setState({ changed: false, style: "none" });
+      this.props.calculate()
     }
   }
   lock = e => {
     e.preventDefault();
     this.setState({ disabled: !this.state.disabled ? true : false });
+    if (!this.state.disabled) {
+      this.props.whatIsLocked(e);
+    } else {
+      this.props.whatIsUnlocked(e);
+    }
   };
 
   render() {
     if (this.props.id) {
       return (
         <>
-          <div className='label'>{this.props.department}</div>
+          <div className="label">{this.props.department}</div>
           <input
             style={{ border: this.state.style }}
-            type='text'
+            type="text"
             name={this.props.department}
             value={this.state.weight}
             onChange={this.handleChange}
             onClick={this.selected}
             disabled={this.state.disabled}
           />
-          <button className='btn' onClick={e => this.lock(e)}>
+          <button
+            className="btn"
+            name={this.props.department + "l"}
+            onClick={e => this.lock(e)}
+          >
             lock
           </button>
         </>
@@ -63,14 +73,18 @@ export default class Form extends Component {
           <Link to={this.props.department}>{this.props.department}</Link>
           <input
             style={{ border: this.state.style }}
-            type='text'
+            type="text"
             name={this.props.department}
             value={this.state.weight}
             onChange={this.handleChange}
             onClick={this.selected}
             disabled={this.state.disabled}
           />
-          <button className='btn' onClick={e => this.lock(e)}>
+          <button
+            className="btn"
+            name={this.props.department + "l"}
+            onClick={e => this.lock(e)}
+          >
             lock
           </button>
         </>
