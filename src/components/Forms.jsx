@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Form from "./Form";
 import datap from "../datap/boop";
-import '../css/StyleSheet.css'
+
 
 export default class Forms extends Component {
   constructor(props) {

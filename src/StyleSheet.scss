@@ -1,9 +1,4 @@
-* {
-    height: 100%;
-    width: 100%;
-    margin: 0px;
-    display: flex;
-}
+
 
 form {
     height: 100%;
@@ -13,6 +8,9 @@ form {
 input {
     height: 50px;
     width:100px;
+}
+.background {
+    height:100%
 }
 .label {
     height:20px;

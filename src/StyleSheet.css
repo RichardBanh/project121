@@ -1,0 +1,23 @@
+form {
+  height: 100%;
+  width: 700px;
+}
+
+input {
+  height: 50px;
+  width: 100px;
+}
+
+html, body, #root, .background {
+  height: 100%;
+}
+
+.label {
+  height: 20px;
+}
+
+.btn {
+  height: 20px;
+  width: 100px;
+}
+/*# sourceMappingURL=StyleSheet.css.map */
