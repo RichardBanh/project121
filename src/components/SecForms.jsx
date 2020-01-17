@@ -9,6 +9,7 @@ export default class SecForms extends Component {
     super(props);
     this.state = { data: [], id: "" };
     this.calculate = this.calculate.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
   componentDidMount() {
     var id = this.props.match.params.id;
@@ -19,8 +20,20 @@ export default class SecForms extends Component {
     });
   }
 
-  calculate = (valuechanged) => {
-    console.log(valuechanged)
+  handleChange =(e)=> {
+    e.persist();
+    this.setState(state => {
+      const data = state.data.map(x => {
+        if (x.department === e.target.name) {
+          return (x.weight = e.target.value);
+        }
+      });
+      return data
+    });
+  }
+
+  calculate = valuechanged => {
+    console.log(valuechanged);
   };
 
   render() {
@@ -37,6 +50,7 @@ export default class SecForms extends Component {
             whatIsLocked={this.props.whatIsLocked}
             whatIsUnlocked={this.props.whatIsUnlocked}
             calculate={this.calculate}
+            handleChange={this.handleChange}
           />
         ));
         return (

@@ -5,7 +5,7 @@ import datap from "../datap/boop";
 export default class Forms extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: []};
+    this.state = { data: [] };
     this.calculate = this.calculate.bind(this);
   }
 
@@ -14,18 +14,33 @@ export default class Forms extends Component {
     this.setState({ data });
   }
 
-  calculate = (valuechanged, valuename, changeinvalue) => {
-    console.log(valuechanged, valuename, changeinvalue)
+  handleChange = (e) => {
+    console.log(e.target.name)
+    e.persist();
     this.setState(state => {
-      const data = state.data.map((x)=> {
-        if (x.department===valuename){
-          return  (x.weight = valuechanged)
-        } else if (x.department !== valuename) {
-          return (x.weight = (-1 *parseFloat(x.weight, 10) * 100)/ ((changeinvalue/100) + parseFloat(x.weight, 10)))
+      const data = state.data.map(x => {
+        if (x.department === e.target.name) {
+          return (x.weight = e.target.value);
         }
-        }); return data
-      })
-    console.log(this.state)
+      });
+      return data;
+    });
+  }
+
+  calculate = (valuechanged, valuename, changeinvalue) => {
+    console.log(valuechanged, valuename, changeinvalue);
+    this.setState(state => {
+      const data = state.data.map(x => {
+        if (x.department === valuename) {
+          return (x.weight = valuechanged);
+        } else if (x.department !== valuename) {
+          return (x.weight =
+            (-1 * parseFloat(x.weight, 10) * 100) /
+            (changeinvalue / 100 + parseFloat(x.weight, 10)));
+        }
+      });
+      return data;
+    });
   };
 
   render() {
@@ -41,6 +56,7 @@ export default class Forms extends Component {
           whatIsLocked={this.props.whatIsLocked}
           whatIsUnlocked={this.props.whatIsUnlocked}
           calculate={this.calculate}
+          handleChange={this.handleChange}
         />
       ));
       return (

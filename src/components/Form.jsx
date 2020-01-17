@@ -5,19 +5,17 @@ export default class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      weight: this.props.weight,
       style: "none",
       changed: false,
       disabled: false
     };
-    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(e) {
-    this.setState({ weight: e.target.value });
-  }
+  
 
-  componentDidUpdate(prevState) {
+  componentDidUpdate(prevProps, prevState) {
+    console.log(this.props.weight, prevProps)
+    
     if (
       this.props.selcName === this.props.department &&
       this.state.changed === false &&
@@ -26,20 +24,20 @@ export default class Form extends Component {
       console.log("match");
       this.setState({ style: "5px solid red", changed: true });
     } else if (
-      //run calculation function here
       this.state.changed === true &&
       this.props.selcName !== this.props.department
     ) {
       this.setState({ changed: false, style: "none" });
-      if (prevState.weight !== this.state.weight){
-        
-        const weight = parseInt(this.state.weight)
-        const changeinval = weight - parseInt(prevState.weight)
-        this.props.calculate(weight, this.props.department, changeinval)
-    }
+      //here change something here!!!
+      if (prevProps.weight !== this.props.weight) {
+        const weight = parseInt(this.props.weight);
+        const changeinval = weight - parseInt(prevProps.weight);
+        console.log(weight, this.props.department, changeinval)
+        this.props.calculate(weight, this.props.department, changeinval);
       }
-      
+    }
   }
+
   lock = e => {
     e.preventDefault();
     this.setState({ disabled: !this.state.disabled ? true : false });
@@ -59,8 +57,8 @@ export default class Form extends Component {
             style={{ border: this.state.style }}
             type="value"
             name={this.props.department}
-            value={this.state.weight}
-            onChange={this.handleChange}
+            value={this.props.weight}
+            onChange={this.props.handleChange}
             onClick={this.selected}
             disabled={this.state.disabled}
           />
@@ -81,8 +79,8 @@ export default class Form extends Component {
             style={{ border: this.state.style }}
             type="value"
             name={this.props.department}
-            value={this.state.weight}
-            onChange={this.handleChange}
+            value={this.props.weight}
+            onChange={this.props.handleChange}
             onClick={this.selected}
             disabled={this.state.disabled}
           />
