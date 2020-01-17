@@ -5,7 +5,7 @@ import datap from "../datap/boop";
 export default class Forms extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: [], changeinvalue: 0, calchange: 0 };
+    this.state = { data: []};
     this.calculate = this.calculate.bind(this);
   }
 
@@ -14,8 +14,18 @@ export default class Forms extends Component {
     this.setState({ data });
   }
 
-  calculate = obj => {
-    console.log("calc")
+  calculate = (valuechanged, valuename, changeinvalue) => {
+    console.log(valuechanged, valuename, changeinvalue)
+    this.setState(state => {
+      const data = state.data.map((x)=> {
+        if (x.department===valuename){
+          return  (x.weight = valuechanged)
+        } else if (x.department !== valuename) {
+          return (x.weight = (-1 *parseFloat(x.weight, 10) * 100)/ ((changeinvalue/100) + parseFloat(x.weight, 10)))
+        }
+        }); return data
+      })
+    console.log(this.state)
   };
 
   render() {

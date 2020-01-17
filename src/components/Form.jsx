@@ -17,7 +17,7 @@ export default class Form extends Component {
     this.setState({ weight: e.target.value });
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevState) {
     if (
       this.props.selcName === this.props.department &&
       this.state.changed === false &&
@@ -31,8 +31,14 @@ export default class Form extends Component {
       this.props.selcName !== this.props.department
     ) {
       this.setState({ changed: false, style: "none" });
-      this.props.calculate()
+      if (prevState.weight !== this.state.weight){
+        
+        const weight = parseInt(this.state.weight)
+        const changeinval = weight - parseInt(prevState.weight)
+        this.props.calculate(weight, this.props.department, changeinval)
     }
+      }
+      
   }
   lock = e => {
     e.preventDefault();
@@ -51,7 +57,7 @@ export default class Form extends Component {
           <div className="label">{this.props.department}</div>
           <input
             style={{ border: this.state.style }}
-            type="text"
+            type="value"
             name={this.props.department}
             value={this.state.weight}
             onChange={this.handleChange}
@@ -73,7 +79,7 @@ export default class Form extends Component {
           <Link to={this.props.department}>{this.props.department}</Link>
           <input
             style={{ border: this.state.style }}
-            type="text"
+            type="value"
             name={this.props.department}
             value={this.state.weight}
             onChange={this.handleChange}

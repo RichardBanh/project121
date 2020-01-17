@@ -19,9 +19,8 @@ export default class SecForms extends Component {
     });
   }
 
-  calculate = data => {
-    console.log("calc")
-    //get data into here
+  calculate = (valuechanged) => {
+    console.log(valuechanged)
   };
 
   render() {
@@ -46,7 +45,6 @@ export default class SecForms extends Component {
             <button className="btn">
               <Link to="/">back</Link>
             </button>
-
             <input className="btn" type="submit" />
           </form>
         );
