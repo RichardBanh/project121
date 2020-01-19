@@ -14,7 +14,6 @@ export default class Form extends Component {
   
 
   componentDidUpdate(prevProps, prevState) {
-    console.log(this.props.weight, prevProps)
     
     if (
       this.props.selcName === this.props.department &&
@@ -28,6 +27,7 @@ export default class Form extends Component {
       this.props.selcName !== this.props.department
     ) {
       this.setState({ changed: false, style: "none" });
+      console.log(prevProps, this.props.weight)
       //here change something here!!!
       if (prevProps.weight !== this.props.weight) {
         const weight = parseInt(this.props.weight);
