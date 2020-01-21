@@ -12,10 +12,7 @@ export default class Form extends Component {
     };
   }
 
-  
-
   componentDidUpdate(prevProps, prevState) {
-    
     if (
       this.props.selcName === this.props.department &&
       this.state.changed === false &&
@@ -31,18 +28,16 @@ export default class Form extends Component {
       if (this.state.previousval !== this.props.weight) {
         const weight = parseInt(this.props.weight);
         const changeinval = weight - parseInt(this.state.previousval);
-        console.log(weight, this.props.department, changeinval)
+        console.log(weight, this.props.department, changeinval);
         this.props.calculate(weight, this.props.department, changeinval);
-        this.setState({previousval: weight})
+        this.setState({ previousval: weight });
       }
-    }
+    } 
   }
 
-  componentDidMount() {
-    this.setState({
-      previousval: this.props.weight
-    })
-  }
+ componentDidMount() {
+   this.setState({previousval: this.props.weight})
+ }
 
   lock = e => {
     e.preventDefault();
