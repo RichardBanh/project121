@@ -7,7 +7,8 @@ export default class Form extends Component {
     this.state = {
       style: "none",
       changed: false,
-      disabled: false
+      disabled: false,
+      previousval: ""
     };
   }
 
@@ -27,15 +28,20 @@ export default class Form extends Component {
       this.props.selcName !== this.props.department
     ) {
       this.setState({ changed: false, style: "none" });
-      console.log(prevProps, this.props.weight)
-      //here change something here!!!
-      if (prevProps.weight !== this.props.weight) {
+      if (this.state.previousval !== this.props.weight) {
         const weight = parseInt(this.props.weight);
-        const changeinval = weight - parseInt(prevProps.weight);
+        const changeinval = weight - parseInt(this.state.previousval);
         console.log(weight, this.props.department, changeinval)
         this.props.calculate(weight, this.props.department, changeinval);
+        this.setState({previousval: weight})
       }
     }
+  }
+
+  componentDidMount() {
+    this.setState({
+      previousval: this.props.weight
+    })
   }
 
   lock = e => {
