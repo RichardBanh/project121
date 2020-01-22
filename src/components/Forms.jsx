@@ -43,6 +43,10 @@ export default class Forms extends Component {
     });
   };
 
+  changed = () => {
+    
+  }
+
   render() {
     if (!this.state.data) {
       return <div>Loading</div>;
