@@ -32,9 +32,10 @@ export default class Form extends Component {
       }
     } else if (
       this.props.selcName !== this.props.department &&
-      this.state.changed === false && this.state.previousval !== this.props.weight
+      this.state.changed === false &&
+      this.state.previousval !== this.props.weight
     ) {
-      this.setState({previousval:this.props.weight})
+      this.setState({ previousval: this.props.weight });
     }
   }
 

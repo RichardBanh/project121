@@ -14,8 +14,8 @@ export default class Forms extends Component {
     this.setState({ data });
   }
 
-  handleChange = (e) => {
-    console.log(e.target.name)
+  handleChange = e => {
+    console.log(e.target.name);
     e.persist();
     this.setState(state => {
       const data = state.data.map(x => {
@@ -25,7 +25,7 @@ export default class Forms extends Component {
       });
       return data;
     });
-  }
+  };
 
   calculate = (valuechanged, valuename, changeinvalue) => {
     console.log(valuechanged, valuename, changeinvalue);
@@ -43,9 +43,7 @@ export default class Forms extends Component {
     });
   };
 
-  changed = () => {
-    
-  }
+  changed = () => {};
 
   render() {
     if (!this.state.data) {
@@ -66,7 +64,7 @@ export default class Forms extends Component {
       return (
         <form>
           {formpopulated}
-          <input className="btn" type="submit" />
+          <input className='btn' type='submit' />
         </form>
       );
     }
