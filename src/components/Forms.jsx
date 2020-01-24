@@ -15,7 +15,7 @@ export default class Forms extends Component {
   }
 
   handleChange = e => {
-    console.log(e.target.name);
+    // console.log(e.target.name);
     e.persist();
     this.setState(state => {
       const data = state.data.map(x => {
@@ -28,7 +28,7 @@ export default class Forms extends Component {
   };
 
   calculate = (valuechanged, valuename, changeinvalue) => {
-    console.log(valuechanged, valuename, changeinvalue);
+    // console.log(valuechanged, valuename, changeinvalue);
     this.setState(state => {
       const data = state.data.map(x => {
         if (x.department === valuename) {

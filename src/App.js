@@ -15,7 +15,6 @@ export default class App extends Component {
   }
 
   whatIsClicked = (event) => {
-    console.log(event.target.name)
     const selcName = event.target.name
     this.setState({selcName:selcName})
   }
