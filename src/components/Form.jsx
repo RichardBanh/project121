@@ -21,6 +21,7 @@ export default class Form extends Component {
     ) {
       this.setState({ style: "5px solid red", changed: true });
       // console.log("1", this.state.previousval, this.props.weight, this.props.department)
+      this.setState({ previousval: this.props.weight })
     } 
     else if (
       this.state.changed === true &&
@@ -34,7 +35,7 @@ export default class Form extends Component {
         this.props.calculate(weight, this.props.department, changeinval);
         console.log(weight)
         
-      }this.setState({ previousval: this.props.weight });
+      };
       // console.log("2.2", this.state.previousval, this.props.weight, this.props.department)
     } 
     else if (
@@ -43,14 +44,12 @@ export default class Form extends Component {
     ) {
       // console.log("3.1", this.state.previousval, this.props.weight, this.props.department)
       this.setState({ previousval: this.props.weight });
-      console.log(this.state.previousval,this.props.department, this.props.weight )
+      console.log(this.state.previousval, this.props.department, this.props.weight )
       // console.log("3.2", this.state.previousval, this.props.weight, this.props.department)
     }
   }
 
-  componentDidMount() {
-    this.setState({ previousval: this.props.weight });
-  }
+  
 
   lock = e => {
     e.preventDefault();

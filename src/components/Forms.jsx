@@ -20,6 +20,7 @@ export default class Forms extends Component {
     this.setState(state => {
       const data = state.data.map(x => {
         if (x.department === e.target.name) {
+          console.log(e.target.name)
           return (x.weight = e.target.value);
         }
       });
@@ -59,6 +60,7 @@ export default class Forms extends Component {
           whatIsUnlocked={this.props.whatIsUnlocked}
           calculate={this.calculate}
           handleChange={this.handleChange}
+          elemName={this.props.elemName} 
         />
       ));
       return (
