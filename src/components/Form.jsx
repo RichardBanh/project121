@@ -9,48 +9,11 @@ export default class Form extends Component {
       changed: false,
       disabled: false,
       previousval: "",
-      changedsnap: false
+      changedsnap: false,
+      inputclicked: 0
     };
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (
-      this.props.selcName === this.props.department &&
-      this.state.changed === false &&
-      this.state.disabled === false
-    ) {
-      this.setState({ style: "5px solid red", changed: true });
-      // console.log("1", this.state.previousval, this.props.weight, this.props.department)
-    } 
-    else if (
-      this.state.changed === true &&
-      this.props.selcName !== this.props.department
-    ) {
-      // console.log("2.1", this.state.previousval, this.props.weight, this.props.department)
-      this.setState({ changed: false, style: "none" });
-      if (this.state.previousval !== this.props.weight) {
-        const weight = parseInt(this.props.weight);
-        const changeinval = weight - parseInt(this.state.previousval);
-        this.props.calculate(weight, this.props.department, changeinval);
-        console.log(weight)
-        
-      }this.setState({ previousval: this.props.weight });
-      // console.log("2.2", this.state.previousval, this.props.weight, this.props.department)
-    } 
-    else if (
-      this.props.selcName !== this.props.department &&
-      this.state.previousval !== this.props.weight
-    ) {
-      // console.log("3.1", this.state.previousval, this.props.weight, this.props.department)
-      this.setState({ previousval: this.props.weight });
-      console.log(this.state.previousval,this.props.department, this.props.weight )
-      // console.log("3.2", this.state.previousval, this.props.weight, this.props.department)
-    }
-  }
-
-  componentDidMount() {
-    this.setState({ previousval: this.props.weight });
-  }
 
   lock = e => {
     e.preventDefault();
@@ -63,13 +26,42 @@ export default class Form extends Component {
   };
 
   render() {
+    if (
+      this.props.selcName === this.props.department &&
+      this.state.changed === false &&
+      this.state.disabled === false
+    ) {
+      this.setState({ style: "5px solid red", changed: true });
+    } else if (
+      this.state.changed === true &&
+      this.props.selcName !== this.props.department
+    ) {
+      this.setState({ changed: false, style: "none" });
+      if (this.state.previousval !== this.props.weight) {
+        const weight = parseInt(this.props.weight);
+        const changeinval = weight - parseInt(this.state.previousval);
+        this.props.calculate(weight, this.props.department, changeinval);
+      }
+      this.setState({ previousval: this.props.weight });
+    } else if (
+      this.props.selcName !== this.props.department &&
+      this.state.previousval !== this.props.weight
+    ) {
+
+      this.setState({ previousval: this.props.weight });
+      console.log(
+        this.state.previousval,
+        this.props.department,
+        this.props.weight
+      );
+    }
     if (this.props.id) {
       return (
         <>
-          <div className='label'>{this.props.department}</div>
+          <div className="label">{this.props.department}</div>
           <input
             style={{ border: this.state.style }}
-            type='value'
+            type="value"
             name={this.props.department}
             value={this.props.weight}
             onChange={this.props.handleChange}
@@ -77,7 +69,7 @@ export default class Form extends Component {
             disabled={this.state.disabled}
           />
           <button
-            className='btn'
+            className="btn"
             name={this.props.department + "l"}
             onClick={e => this.lock(e)}
           >
@@ -91,7 +83,7 @@ export default class Form extends Component {
           <Link to={this.props.department}>{this.props.department}</Link>
           <input
             style={{ border: this.state.style }}
-            type='value'
+            type="value"
             name={this.props.department}
             value={this.props.weight}
             onChange={this.props.handleChange}
@@ -99,7 +91,7 @@ export default class Form extends Component {
             disabled={this.state.disabled}
           />
           <button
-            className='btn'
+            className="btn"
             name={this.props.department + "l"}
             onClick={e => this.lock(e)}
           >

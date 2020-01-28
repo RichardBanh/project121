@@ -54,7 +54,7 @@ export default class Forms extends Component {
           department={x.department}
           weight={parseInt(x.weight, 10)}
           clicked={this.props.clicked}
-          selcName={this.props.selcName}
+          selcName={this.props.selcName} tagName={this.props.tagName}
           whatIsLocked={this.props.whatIsLocked}
           whatIsUnlocked={this.props.whatIsUnlocked}
           calculate={this.calculate}
