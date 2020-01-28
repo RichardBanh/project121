@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
 export default class Form extends Component {
   constructor(props) {
     super(props);
@@ -45,6 +44,7 @@ export default class Form extends Component {
       this.setState({ previousval: this.props.weight });
     } else if (
       this.props.selcName !== this.props.department &&
+      this.state.changed === false &&
       this.state.previousval !== this.props.weight
     ) {
 
